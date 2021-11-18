@@ -1,22 +1,22 @@
 package com.company.dsa;
 import java.util.Scanner;
 public class dsa_1_binarySearch {
-    public static int search(int [] nums,int first, int last, int tocheck){
+    public static int search(int [] nums,int first, int last, int toCheck){
         int index=0;
         int mid= (first+last)/2;
 
-            if(nums[mid]==tocheck){
+            if(nums[mid]==toCheck){
                 index=mid;
                 return index;
             }
-            else if(nums[mid]>tocheck && tocheck>=nums[first]){
+            else if(nums[mid]>toCheck && toCheck>=nums[first]){
                 //Target should be less than the biggest number
 
-                return  search(nums,first,mid,tocheck);
+                return  search(nums,first,mid,toCheck);
             }
-            else if(nums[mid]<tocheck && tocheck<nums[last]){
+            else if(nums[mid]<toCheck && toCheck<nums[last]){
                 //Target should be less than the biggest number
-               return search(nums,mid+1,last,tocheck);
+               return search(nums,mid+1,last,toCheck);
             }
             else return -1;
 
