@@ -1,4 +1,5 @@
 package com.company.dsa;
+import java.util.Scanner;
 
 public class dsa_2_SquareRoot {
     static public int mySqrt1(int x) {
@@ -12,7 +13,7 @@ public class dsa_2_SquareRoot {
 
             if (mid * mid == x) {
                 ans = mid;
-                break;// Break state is necessary to exit the loop
+                break;// Break statement is necessary to exit the loop
             }
 
              if (mid * mid < x) {
@@ -43,8 +44,16 @@ public class dsa_2_SquareRoot {
         return end;
     }
     public static void main(String[] args) {
-        System.out.println(mySqrt1(50));
-        System.out.println(mySqrt2(39));
+        System.out.println("Enter the first number: ");
+        Scanner sc1= new Scanner(System.in);
+        int a = sc1.nextInt();
+        System.out.print("The square root of this integer is (Integer part): ");
+        System.out.println(mySqrt1(a));
+        System.out.println("Enter the second number: ");
+        Scanner sc2=new Scanner(System.in);
+        int b = sc1.nextInt();
+        System.out.print("The square root of this integer is (Integer part): ");
+        System.out.println(mySqrt2(b));
     }
 }
 
