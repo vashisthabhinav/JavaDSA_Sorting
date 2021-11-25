@@ -9,7 +9,7 @@ public class dsa_2_SquareRoot {
         int ans = 0;
 
         while (start <= end) {
-            mid = (start + end) / 2;
+            mid = start+(end-start)/2;
 
             if (mid * mid == x) {
                 ans = mid;
