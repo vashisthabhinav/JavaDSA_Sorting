@@ -26,17 +26,30 @@ public class DSA_2_BubbleSort {
     public static void main(String[] args) {
         int nums[]={1,5,2,54,67,21};
         System.out.println("Array before bubbleSorting"+Arrays.toString(nums));
-        bubbleSort(nums);
+//        bubbleSort1(nums);
+        bubbleSort2(nums);        
         System.out.println("Array after bubbleSorting"+Arrays.toString(nums));
     }
-
-    public static void bubbleSort(int[] nums) {
+//  Method-1
+    public static void bubbleSort1(int[] nums) {
         for (int i = 0; i <nums.length ; i++) {
             for (int j = 0; j <nums.length-1-i ; j++) {
                 if (nums[j]>nums[j+1]){
                     swap(nums,j,j+1);
                 }
             }
+        }
+    }
+    //  Method-2
+    public static void bubbleSort2(int []nums){
+        for (int i = nums.length-1; i >0 ; i--) {
+            for (int j = 1; j <i ; j++) {
+                if (nums[j+1]<nums[j]){
+                    swap(nums, j,j+1);
+                }
+
+            }
+
         }
     }
 
