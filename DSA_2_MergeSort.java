@@ -43,10 +43,10 @@ public class DSA_2_MergeSort {
         if (end-start<2){
             return;
         }
-        int mid = (start + end) / 2;
-        MergeSort(input, start, mid);
-        MergeSort(input, mid, end);
-        Merge(input, start, mid, end);
+        int mid = (start + end) / 2;       
+        MergeSort(input, start, mid); //Dividing left side of the array into single value arrays.
+        MergeSort(input, mid, end); //Dividing right side of the array into single value arrays.
+        Merge(input, start, mid, end);// Merging both the parts
 
     }
     public static void Merge(int[] input, int start, int mid, int end) {
@@ -66,5 +66,11 @@ public class DSA_2_MergeSort {
         System.arraycopy(temp,0,input,start,tempIndex);
         // arraycopy--> Copies an array from the specified source array,
         // beginning at the specified position, to the specified position of the destination array
+        System.arraycopy(Object source_arr,int sourcePos, Object dest_arr, int destPos,int len);
+//          source_arr : array to be copied from
+//            sourcePos : starting position in source array from where to copy
+//            dest_arr : array to be copied in
+//            destPos : starting position in destination array, where to copy in
+//            len : total number of components to be copied.
     }
 }
