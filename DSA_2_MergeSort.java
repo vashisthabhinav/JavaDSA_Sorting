@@ -35,9 +35,9 @@ If the array is at positions x to y, and the right array is at y+1 to z, then af
 public class DSA_2_MergeSort {
     public static void main(String[] args) {
         int intArray[] = {1, 5, 2, 54, -67, 21};
-        System.out.println("Array before Shell sort" + Arrays.toString(intArray));
+        System.out.println("Array before Merge sort" + Arrays.toString(intArray));
         MergeSort(intArray,0, intArray.length);
-        System.out.println("Array after Shell sort" + Arrays.toString(intArray));
+        System.out.println("Array after Merge sort" + Arrays.toString(intArray));
     }
     public static void MergeSort(int[] input, int start, int end) {
         if (end-start<2){
