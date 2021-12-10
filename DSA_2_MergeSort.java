@@ -14,7 +14,7 @@ Divide the array into two arrays, which are unsorted. The first array is the lef
 Split the left and right arrays into two arrays each.
 Keep splitting until all the arrays have only one element each-these arrays are sorted.
 MERGING PHASE
-Merge every left/right pair of sibling arrays into a sorted arrays
+Merge every left/right pairs of sibling arrays into a sorted arrays
 After the first merge, we'll have a bunch of 4-element sorted arrays.
 Then merge those sorted arrays (left/right siblings) to end up with a bunch of 4-element sorted arrays.
 Repeat until you have a single sorted arrays.
@@ -36,20 +36,22 @@ public class DSA_2_MergeSort {
     public static void main(String[] args) {
         int intArray[] = {1, 5, 2, 54, -67, 21};
         System.out.println("Array before Merge sort" + Arrays.toString(intArray));
-        MergeSort(intArray,0, intArray.length);
-        System.out.println("Array after Merge sort" + Arrays.toString(intArray));
+        MergeSort1(intArray,0, intArray.length);
+        System.out.println("Array after Merge sort(Ascending Order)" + Arrays.toString(intArray));
+        MergeSort2(intArray,0, intArray.length);
+        System.out.println("Array after Merge sort(Descending Order)" + Arrays.toString(intArray));
     }
-    public static void MergeSort(int[] input, int start, int end) {
+    public static void MergeSort1(int[] input, int start, int end) {
         if (end-start<2){
             return;
         }
-        int mid = (start + end) / 2;       
-        MergeSort(input, start, mid); //Dividing left side of the array into single value arrays.
-        MergeSort(input, mid, end); //Dividing right side of the array into single value arrays.
-        Merge(input, start, mid, end);// Merging both the parts
+        int mid = (start + end) / 2;
+        MergeSort1(input, start, mid);
+        MergeSort1(input, mid, end);
+        MergeAsc(input, start, mid, end);
 
     }
-    public static void Merge(int[] input, int start, int mid, int end) {
+    public static void MergeAsc(int[] input, int start, int mid, int end) {
         if (input[mid - 1] <= input[mid]) {
             return;
         }
@@ -66,11 +68,32 @@ public class DSA_2_MergeSort {
         System.arraycopy(temp,0,input,start,tempIndex);
         // arraycopy--> Copies an array from the specified source array,
         // beginning at the specified position, to the specified position of the destination array
-        System.arraycopy(Object source_arr,int sourcePos, Object dest_arr, int destPos,int len);
-//          source_arr : array to be copied from
-//            sourcePos : starting position in source array from where to copy
-//            dest_arr : array to be copied in
-//            destPos : starting position in destination array, where to copy in
-//            len : total number of components to be copied.
+    }
+    public static void MergeSort2(int[] input, int start, int end) {
+        if (end-start<2){
+            return;
+        }
+        int mid = (start + end) / 2;
+        MergeSort2(input, start, mid);
+        MergeSort2(input, mid, end);
+        MergeDsc(input,start,mid,end);
+
+    }
+
+    public static void MergeDsc(int[] input, int start, int mid, int end) {
+        if (input[mid-1] >= input[mid]) {
+            return;
+        }
+        int i=start;
+        int j=mid;
+        int tempIndex = 0;
+        int[] temp=new int[end-start];
+        while (i < mid && j < end){
+            temp[tempIndex++] = input[i]>=input[j] ? input[i++] : input[j++];
+        }
+        System.arraycopy(input,i,input,start+tempIndex,mid-i);
+        System.arraycopy(temp,0,input,start,tempIndex);
+        //{34,32} {35.33}
+        // 35 34 33 , 32 remains in left array so, it is copied into input
     }
 }
