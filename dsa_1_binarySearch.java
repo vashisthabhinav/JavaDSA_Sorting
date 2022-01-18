@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class dsa_1_binarySearch {
     public static int search(int [] nums,int first, int last, int toCheck){
         int index=0;
-        int mid= (first+last)/2;
+        int mid= first - (first - last)/2;
 
             if(nums[mid]==toCheck){
                 index=mid;
